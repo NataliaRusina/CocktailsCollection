@@ -1,0 +1,133 @@
+.addCocktailFormContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .formGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px; 
+    margin-bottom: 10px;
+    }
+ 
+    label {
+        font-weight: bold;
+        display: block;
+         margin-bottom: 5px;
+          font-weight: bold;
+        font-size: 16px;
+        color: #3a3636;
+    }
+
+    input,
+    textarea {
+        width: 93%;
+        padding: 10px;
+        margin-top: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    input[type="radio"] {
+    margin-right: 10px;
+    }
+
+     .fileName {
+        font-size: 14px;
+        color: #555;
+        background: #f1f1f1;
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .radioGroup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    }
+
+    .radioGroup label {
+    font-weight: normal;
+    margin: 0;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+
+   button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: rgb(33, 109, 207);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: rgb(2, 2, 167);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+.clearButton {
+    background-color: #bbb4b4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+
+    &:hover {
+        background-color: #555353;
+    }
+}
+
+
+    .successMessage {
+        color: green;
+    }
+
+    .errorMessage {
+        color: red;
+    }
+}

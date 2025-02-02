@@ -1,0 +1,85 @@
+.collectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.cocktailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 0;
+  list-style: none;
+  
+}
+
+.cocktailItem {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   min-width: 200px; 
+  max-width: 100%; 
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.cocktailItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cocktailImageWrapper {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.cocktailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cocktailName {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+@media (min-width: 600px) {
+  .cocktailsGrid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (min-width: 768px) {
+  .cocktailsGrid {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (min-width: 1024px) {
+  .cocktailsGrid {
+    grid-template-columns: repeat(4, 1fr); 
+  }
+}
+
+@media (min-width: 1280px) {
+  .cocktailsGrid {
+    grid-template-columns: repeat(5, 1fr); 
+  }
+}
