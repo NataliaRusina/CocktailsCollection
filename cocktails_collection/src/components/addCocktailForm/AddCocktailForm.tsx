@@ -35,6 +35,7 @@ export default function AddCocktailForm() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setMessage(null);
+        setError(null);
         if (name === "name") {
             setName(value);
         } else if (name === "ingredients") {
@@ -53,18 +54,21 @@ export default function AddCocktailForm() {
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(null);
+
         const file = event.target.files?.[0];
-        if (file) {
-            setImageName(file.name);
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onloadend = () => {
-                if (typeof reader.result === "string") {
-                    setImage(reader.result);
-                }
-            };
-        }
+        if (!file) return;
+
+        setImageName(file.name);
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (typeof reader.result === "string") {
+                setImage(reader.result);
+            }
+        };
+        reader.readAsDataURL(file);
     };
+
     const validateForm = () => {
         if (!name || !ingredients || !instructions || !category) {
             setError("All fields are required!");
@@ -102,7 +106,7 @@ export default function AddCocktailForm() {
         <div className="addCocktailFormContainer">
             {message && <p className="successMessage">{message}</p>}
             {error && <p className="errorMessage">{error}</p>}
-            <form onSubmit={handleSubmit} className="cocktailForm">
+            <form onSubmit={handleSubmit} className="cocktailForm" noValidate>
                 <div className="formGroup">
                     <label htmlFor="name">Cocktail Name:</label>
                     <input
@@ -112,7 +116,6 @@ export default function AddCocktailForm() {
                         value={name}
                         onChange={handleInputChange}
                         placeholder="Enter cocktail name"
-                        required
                     />
                 </div>
 
@@ -125,7 +128,6 @@ export default function AddCocktailForm() {
                         value={ingredients}
                         onChange={handleInputChange}
                         placeholder="Enter ingredients"
-                        required
                     />
                 </div>
 
@@ -137,7 +139,6 @@ export default function AddCocktailForm() {
                         value={instructions}
                         onChange={handleInputChange}
                         placeholder="Enter instructions"
-                        required
                     />
                 </div>
 
@@ -150,7 +151,6 @@ export default function AddCocktailForm() {
                         value={category}
                         onChange={handleInputChange}
                         placeholder="Enter category"
-                        required
                     />
                 </div>
 
